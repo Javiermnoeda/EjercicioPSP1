@@ -75,6 +75,7 @@ private suspend fun funcionAsyncNormal(){
         println("He terminado el async")
         resultInCoroutine
     }
+    delay(1000)
     println("Voy a hacer el await")
     // El await esperará a que el GlobalSncope.async {} termine de ejecutarse. Si el aync ya hubiera terminado,
     // entonces el await no esperaría, xq ya tiene el resultado
@@ -92,6 +93,9 @@ private suspend fun funcionAsyncLazy(){
         println("He terminado el async")
         resultInCoroutine
     }
+    delay(1000)
+    // El await esperará a que el GlobalSncope.async {} termine de ejecutarse. Pero esa ejecución no comenzará hasta
+    // hasta que alguien realice el await. De este modo funcionAsyncLazy será un segundo más lento que el funcionAsyncNormal
     println("Voy a hacer el await")
     println(resultDeferred.await())
     println("Voy a salir del await")
