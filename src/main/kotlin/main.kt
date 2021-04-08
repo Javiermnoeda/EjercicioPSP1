@@ -4,7 +4,7 @@ import kotlin.random.Random
 var mostrarLogsDelBlocking = false
 
 fun main() {
-  /*
+
     println("Empezamos aquí")
 
     println("Entramos")
@@ -52,7 +52,7 @@ fun main() {
 
     // Ponemos este sleeep para que las corrutinas anteriores no se entremezclen con las siguiente corrutinas
     Thread.sleep(3000)
-*/
+
     GlobalScope.launch {
         funcionAsyncNormal()
     }
@@ -104,7 +104,6 @@ private suspend fun funcionAsyncLazy(){
 
 private fun mostrarLog(identificador : Int, scope : CoroutineScope){
     if (mostrarLogsDelBlocking) println("$identificador - ${scope.coroutineContext}")
-
 }
 
 private suspend fun funcionEnCorrutina(i : Int){
